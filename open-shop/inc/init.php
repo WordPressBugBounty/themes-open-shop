@@ -5,6 +5,7 @@
  * @param  
  * @return mixed|string
  */
+$plugin_companion_file = 'hunk-companion/hunk-companion.php';
 get_template_part( 'inc/admin-function');
 get_template_part( 'inc/header-function');
 get_template_part( 'inc/footer-function');
@@ -50,6 +51,6 @@ get_template_part('customizer/pro-button/class-customize');
 // Plugin Activation
 /******************************/
 get_template_part( 'lib/notification/notify');
-if (is_customize_preview()) {
+if (is_customize_preview() && !is_plugin_active($plugin_companion_file)) {
 get_template_part('lib/notification/customizer-notification/thsm-custom-section');
 }
