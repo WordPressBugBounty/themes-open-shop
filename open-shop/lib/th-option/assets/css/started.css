@@ -157,8 +157,7 @@ a.plugin-detail.open-plugin-details-modal {
 }
 
 .rp-two-column.welcome-tabs{
-    flex-direction: column;
-    height: 900px;
+    flex-direction: row;
     justify-content: flex-start;
 }
 .tab-left {
@@ -319,7 +318,7 @@ display: flex;
         display: flex;
         align-items: center;
         background-color: #2a2929;
-        padding: 2px 0px 1px 12px;
+        padding: 2px 12px;
         margin: 20px 0 0 !important;
         color: #fff;
         line-height: normal;
@@ -327,7 +326,7 @@ display: flex;
         box-shadow: 0 0 0 0 #3b5998;
         transition: .3s ease;
         border-radius: 58px;
-        width: 32%;
+        width: max-content;
     }
     .x-gropup:hover ,.x-gropup:active,.x-gropup:focus{
     color:#fff;
@@ -518,4 +517,7 @@ display: flex;
 
 .notice.notice-success.is-dismissible.th-theme-notice {
     display: none;
+}
+.content-wrap a{
+    text-decoration: none;
 }

@@ -125,6 +125,11 @@ define( 'OPEN_SHOP_THEME_SETTINGS', 'open-shop-settings' );
                 'active_filename' => 'hunk-companion/hunk-companion.php',
             ),
 
+			'vayu-blocks' => array(
+				'name' => esc_html__( 'Vayu blocks For Gutenberg', 'open-shop' ),
+				'img' => 'icon-128x128.png',
+				'active_filename' => 'vayu-blocks/vayu-blocks.php',
+				),
             'th-advance-product-search' => array(
             'name' => esc_html__( 'TH Advance Product Search', 'open-shop' ),
             'img' => 'icon-128x128.gif',
@@ -143,45 +148,24 @@ define( 'OPEN_SHOP_THEME_SETTINGS', 'open-shop-settings' );
                  'active_filename' => 'th-product-compare/th-product-compare.php',
              ),
 
+			 'lead-form-builder' => array(
+                'name' => esc_html__( 'Lead Form Builder', 'open-shop' ),
+                 'img' => 'icon-128x128.png',
+                'active_filename' => 'lead-form-builder/lead-form-builder.php',
+            ),
+
             'th-variation-swatches' => array(
                 'name' => esc_html__( 'TH Variation Swatches', 'open-shop' ),
                  'img' => 'icon-128x128.gif',
                 'active_filename' => 'th-variation-swatches/th-variation-swatches.php',
             ),
-            'lead-form-builder' => array(
-                'name' => esc_html__( 'Lead Form Builder', 'open-shop' ),
-                 'img' => 'icon-128x128.png',
-                'active_filename' => 'lead-form-builder/lead-form-builder.php',
-            ),
-			'vayu-blocks' => array(
-				'name' => esc_html__( 'Vayu blocks For Gutenberg', 'open-shop' ),
-				'img' => 'icon-128x128.png',
-				'active_filename' => 'vayu-blocks/vayu-blocks.php',
-				),
-				'wp-popup-builder' => array(
+           
+			'wp-popup-builder' => array(
 					'name' => esc_html__( 'WP Popup Builder – Popup Forms & Newsletter', 'open-shop' ),
 					 'img' => 'icon-128x128.png',
 					'active_filename' => 'wp-popup-builder/wp-popup-builder.php',
 				), 
-            'woocommerce' => array(
-                'name' => esc_html__( 'Woocommerce', 'open-shop' ),
-                 'img' => 'icon-128x128.gif',
-                'active_filename' => 'woocommerce/woocommerce.php',
-            ),
-
-            'yith-woocommerce-wishlist' => array(
-                 'name' => esc_html__( 'YITH WooCommerce Wishlist', 'open-shop' ),
-                  'img' => 'icon-128x128.jpg',
-                 'active_filename' => 'yith-woocommerce-wishlist/init.php',
-             ),
-
-            'themehunk-megamenu-plus' => array(
-                'name' => esc_html__( 'ThemeHunk Megamenu – Menu builder', 'open-shop' ),
-                'img' => 'icon-128x128.png',
-                'active_filename' => 'themehunk-megamenu-plus/themehunk-megamenu.php',
-            ), 
-            
-
+        
         ) );
 
         // Import Data Content plugins
@@ -396,11 +380,4 @@ require_once trailingslashit(OPEN_SHOP_THEME_DIR).'inc/init.php';
 //custom function conditional check for blog page
 function open_shop_is_blog(){
     return ( is_archive() || is_author() || is_category() || is_home() || is_single() || is_tag()) && 'post' == get_post_type();
-}
-
-if ( !empty(get_option( 'theme_mods_openshop-pro')) ) {
-function open_shop_theme_switch() {
-    update_option( 'theme_mods_openshop-pro', get_option( 'theme_mods_open-shop') );
-}
-add_action('switch_theme', 'open_shop_theme_switch');
 }
