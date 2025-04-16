@@ -17,30 +17,8 @@ if ( ! function_exists( 'open_shop_pro_admin_scripts' ) ) :
 endif;
 add_action( 'admin_enqueue_scripts', 'open_shop_pro_admin_scripts' );
 
-$prefix='open_shop_';
 
-$meta_boxes = array(
-      array(
-        'id' => 'open-meta-box',
-        'title' => esc_html__('Dynamic Sidebar','open-shop'),
-        'pages' => array('page','post','product'),// custom post type array('page','post', 'link')
-        'context' => 'side',
-        'priority' => 'low',
-        'fields' => array(
-            array(
-                'name' => '',
-                'id' => $prefix . 'disable_page_sidebar',
-                'type' => 'checkbox',
-                'nameslug' => esc_html__('Disable Sidebar','open-shop'),
-                   
-            ),
-              
-        )
-    )
-);
-foreach ($meta_boxes as $meta_box){
-    $my_box = new open_shop_pro_thMetaDataClass($meta_box);
-}
+
 
 class open_shop_pro_thMetaDataClass {
  
@@ -49,7 +27,7 @@ class open_shop_pro_thMetaDataClass {
     // create meta box based on given data
     function __construct($meta_box) {
         $this->_meta_box = $meta_box;
-        add_action('admin_menu', array(&$this, 'add'));
+        add_action('add_meta_boxes', array(&$this, 'add'));
  
         add_action('save_post', array(&$this, 'save'));
     }
@@ -146,3 +124,29 @@ class open_shop_pro_thMetaDataClass {
         }
     }
 }
+
+function open_shop_pro_register_meta_boxes() {
+    $prefix = 'open_shop_';
+    $meta_boxes = array(
+        array(
+            'id'      => 'open-meta-box',
+            'title'   => esc_html__('Dynamic Sidebar','open-shop'),
+            'pages'   => array('page','post','product'),
+            'context' => 'side',
+            'priority'=> 'low',
+            'fields'  => array(
+                array(
+                    'name'    => '',
+                    'id'      => $prefix . 'disable_page_sidebar',
+                    'type'    => 'checkbox',
+                    'nameslug'=> esc_html__('Disable Sidebar','open-shop'),
+                ),
+            )
+        )
+    );
+
+    foreach ($meta_boxes as $meta_box) {
+        new open_shop_pro_thMetaDataClass($meta_box);
+    }
+}
+add_action( 'init', 'open_shop_pro_register_meta_boxes' );
