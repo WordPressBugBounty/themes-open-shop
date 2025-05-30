@@ -6542,6 +6542,57 @@ width:auto;
     right: 0;
     left: 6px;
 }
+/* New Wishlist 2025  */
+.summary .yith-wcwl-add-to-wishlist-button{
+    border: 1px solid #9c9c9c;
+    border-radius: 0;
+    color: #9c9c9c;
+    display:  inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    line-height: 35px;
+    width: 35px;
+    background: transparent;
+    text-align: center;
+    margin-left: 10px;
+    font-weight: normal;
+    min-width: auto;
+}
+
+.summary .yith-wcwl-add-to-wishlist-button__label{
+  display: none;
+}
+.summary .yith-wcwl-add-to-wishlist-button:before{
+    content: "\e912";
+    font-family: th-icon;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    height: 100%;
+}
+.summary .yith-wcwl-add-to-wishlist-button--added:before{
+    content: "\e909";
+}
+.summary .yith-add-to-wishlist-button-block--single{
+    margin: 0;
+    float: left;
+}
+.yith-wcwl-add-to-wishlist-button svg{
+    display: none;
+}
+.yith-wcwl-add-to-wishlist-button:before{
+     content: "\e912";
+    font-family: th-icon;
+}
+.yith-wcwl-add-to-wishlist-button--added:before{
+    content: "\e909";
+}
+.yith-wcwl-add-to-wishlist-button--added .yith-wcwl-add-to-wishlist-button__label{
+    display: none;
+}
 @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2)  and (orientation: landscape)  {
 .thunk-product-hover{
     position: relative;
@@ -7162,6 +7213,9 @@ width:50%;
   }
 }
 @media screen and (max-width: 767px){
+      .thunk-product .yith-wcwl-add-to-wishlist-button:before{
+        font-size: 12px;
+    }
     .below-header .thaps-search-form .thaps-search-autocomplete {
     min-height: 25px;
     line-height: 25px;

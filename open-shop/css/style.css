@@ -4740,6 +4740,9 @@ top:0em!important;
      content: "\e912";
     font-family: th-icon;
 }
+.yith-wcwl-add-to-wishlist-button--added:before{
+    content: "\e909";
+}
 .yith-wcwl-add-to-wishlist-button--added .yith-wcwl-add-to-wishlist-button__label{
     display: none;
 }
@@ -7976,6 +7979,9 @@ header .taiowc-cart-item{
 }
 
 @media screen and (max-width:767px) {
+    .thunk-product .yith-wcwl-add-to-wishlist-button:before{
+        font-size: 12px;
+    }
     .menu-category-list ul[data-menu-style="accordion"] {
         position: absolute;
         float: none;

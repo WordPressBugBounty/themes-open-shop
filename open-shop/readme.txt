@@ -4,7 +4,7 @@ Tags: wide-blocks, block-patterns, block-styles, editor-style, e-commerce, blog,
 Requires at least: WordPress 5.0
 Requires PHP: 5.6
 Tested up to: 6.8
-Stable tag: 1.6.0
+Stable tag: 1.6.1
 License: GPLv3 or later
 License URL: https://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -22,6 +22,9 @@ Yes our theme supports builder
 Yes, this theme is tested with latest version of WordPress, you can use it for your site.
 
 == Changelog ==
+
+= 1.6.1 =
+* Update: Tested with WordPress 6.8.1 & style updated.
 
 = 1.6.0 =
 * Update: _load_textdomain_just_in_time was called incorrectly issue resolved.
