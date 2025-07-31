@@ -7043,6 +7043,12 @@ margin:0;
     text-align:center;
     margin-top:10px;
 }
+.theme-open-shop.single-product .thunk-compare{
+    width: auto;
+    display: inline-flex;
+    margin-top: 0;
+}
+
 .thunk-product .yith-wcwl-wishlistexistsbrowse:before, 
 .thunk-product .yith-wcwl-wishlistaddedbrowse:before{
   margin:0;

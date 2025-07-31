@@ -120,16 +120,20 @@ if ( ! function_exists( 'open_shop_check_is_ie' ) ) :
 	 *
 	 * @return true | false boolean
 	 */
-	function open_shop_check_is_ie() {
+function open_shop_check_is_ie() {
 
-		$is_ie = false;
+                $is_ie = false;
 
-		$ua = htmlentities( $_SERVER['HTTP_USER_AGENT'], ENT_QUOTES, 'UTF-8' );
-		if ( strpos( $ua, 'Trident/7.0' ) !== false ) {
-			$is_ie = true;
-		}
+                $ua = '';
+                if ( isset( $_SERVER['HTTP_USER_AGENT'] ) ) {
+                        $ua = htmlentities( $_SERVER['HTTP_USER_AGENT'], ENT_QUOTES, 'UTF-8' );
+                }
 
-		return apply_filters( 'open_shop_check_is_ie', $is_ie );
+                if ( strpos( $ua, 'Trident/7.0' ) !== false ) {
+                        $is_ie = true;
+                }
+
+                return apply_filters( 'open_shop_check_is_ie', $is_ie );
 	}
 
 endif;
@@ -218,12 +222,13 @@ function open_shop_add_media_query( $dimension, $custom_css ){
       case 'desktop':
       $custom_css = '@media (min-width: 769px){' . $custom_css . '}';
       break;
-      break;
       case 'tablet':
       $custom_css = '@media (max-width: 768px){' . $custom_css . '}';
       break;
       case 'mobile':
       $custom_css = '@media (max-width: 550px){' . $custom_css . '}';
+      break;
+      default:
       break;
   }
 
@@ -335,15 +340,15 @@ endif;
 $open_shop_color_scheme = get_theme_mod( 'open_shop_color_scheme','opn-light' );
         if ( $open_shop_color_scheme == 'opn-dark' ){
 
-            	 $classes[] = 'open-shop-dark';
+                 $classes[] = 'open-shop-dark';
          }
          if ( $open_shop_color_scheme == 'opn-light' ){
 
-            	 $classes[] = 'open-shop-dark';
+                 $classes[] = 'open-shop-light';
          }
          if( shortcode_exists( 'yith_wcwl_add_to_wishlist' ) ){
                  $classes[] = 'open-shop-wishlist-activate';
-         } 
+         }
 
 
 return $classes;

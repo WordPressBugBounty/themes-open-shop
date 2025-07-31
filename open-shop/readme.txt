@@ -4,13 +4,13 @@ Tags: wide-blocks, block-patterns, block-styles, editor-style, e-commerce, blog,
 Requires at least: WordPress 5.0
 Requires PHP: 5.6
 Tested up to: 6.8
-Stable tag: 1.6.1
+Stable tag: 1.6.3
 License: GPLv3 or later
 License URL: https://www.gnu.org/licenses/gpl-3.0.en.html
 
 
 == Description ==
-Open shop is a fast and responsive shopping WordPress theme with deeply integration of Woocommerce plugin. Best suited for furniture, grocery, clothing, electronic, food, home appliances site, gadget store, jewellery shop, fashion shop and decorative stores , you can create any type of ecommerce website by using it. It is also RTL ready. It contains multiple widgets options and layouts, Some highlighted features are Advance product search, Multiple Hero slider layouts, Product carousel , Product carousel with tabbed category filter, Woo Category slider, Product list layout, Top header with three layouts, Ribbon section, Call to Action section, About Us widget, Blog post widget slider, Footer bottom with three layouts. Open shop is best theme for your next website, check it demos: https://themehunk.com/wp-themes/open-shop/
+Open shop is a fast and responsive shopping WordPress theme with deeply integration of Woocommerce plugin. Best suited for furniture, grocery, clothing, electronic, food, home appliances site, gadget store, jewellery shop, fashion shop and decorative stores , you can create any type of ecommerce website by using it. It is also RTL ready. It contains multiple widgets options and layouts, Some highlighted features are Advance product search, Multiple Hero slider layouts, Product carousel , Product carousel with tabbed category filter, Woo Category slider, Product list layout, Top header with three layouts, Ribbon section, Call to Action section, About Us widget, Blog post widget slider, Footer bottom with three layouts. Open shop is best theme for your next website, check it demos: https://wpthemes.themehunk.com/open-shop
 For more information about Theme https://www.themehunk.com
 
 == Frequently Asked Questions ==
@@ -22,6 +22,14 @@ Yes our theme supports builder
 Yes, this theme is tested with latest version of WordPress, you can use it for your site.
 
 == Changelog ==
+
+= 1.6.3 =
+* Update: Woocommerce checkout page .woocommerce-checkout .thunk-content-wrap {
+    display: -webkit-flex;
+} removed now overflow:hidden added to work with both old and new checkout page.
+
+= 1.6.2 =
+* Update: * Update: Customizer widget redirect issue resolved.
 
 = 1.6.1 =
 * Update: Tested with WordPress 6.8.1 & style updated.

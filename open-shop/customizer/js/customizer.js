@@ -79,3 +79,23 @@ jQuery('#customize-control-open_shop_header_category_list,#customize-control-ope
 });
 
 
+( function( $ ) {
+   
+
+      //footer top
+      wp.customize.bind( 'ready', function() {
+        $('#customize-control-open_shop_footer_col1_widget_redirect .menu-shortcut').on('click', function() {
+            // This opens the Widgets panel and focuses on your specific sidebar section
+            wp.customize.section('sidebar-widgets-footer-top-first').expand();
+        });
+    });
+
+     wp.customize.bind( 'ready', function() {
+        $('#customize-control-open_shop_above_footer_col2_widget_redirect .menu-shortcut').on('click', function() {
+            // This opens the Widgets panel and focuses on your specific sidebar section
+            wp.customize.section('sidebar-widgets-footer-top-second').expand();
+        });
+    });
+
+
+})( jQuery );

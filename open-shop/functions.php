@@ -11,7 +11,7 @@
  * Theme functions and definitions
  */
 if ( ! function_exists( 'open_shop_setup' ) ) :
-define( 'OPEN_SHOP_THEME_VERSION','1.6.1');
+define( 'OPEN_SHOP_THEME_VERSION','1.6.2');
 define( 'OPEN_SHOP_THEME_DIR', get_template_directory() . '/' );
 define( 'OPEN_SHOP_THEME_URI', get_template_directory_uri() . '/' );
 define( 'OPEN_SHOP_THEME_SETTINGS', 'open-shop-settings' );
