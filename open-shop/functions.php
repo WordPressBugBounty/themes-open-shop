@@ -148,6 +148,12 @@ define( 'OPEN_SHOP_THEME_SETTINGS', 'open-shop-settings' );
                  'active_filename' => 'th-product-compare/th-product-compare.php',
              ),
 
+            'th-wishlist' => array(
+				'name' => esc_html__( 'TH Wishlist for WooCommerce', 'open-shop' ),
+				'img' => 'icon-128x128.gif',
+				'active_filename' => 'th-wishlist/th-wishlist.php',
+				),
+
 			 'lead-form-builder' => array(
                 'name' => esc_html__( 'Lead Form Builder', 'open-shop' ),
                  'img' => 'icon-128x128.png',
@@ -337,6 +343,7 @@ function open_shop_scripts(){
 	}
 	wp_enqueue_style( 'open-shop-style', get_stylesheet_uri(), array(), OPEN_SHOP_THEME_VERSION );
 	wp_add_inline_style('open-shop-style', open_shop_custom_style());
+	wp_add_inline_style('open-shop-style', '@font-face{font-family:"th-icon";src:url("' . esc_url(get_template_directory_uri() . '/third-party/fonts/th-icon/fonts/th-icon.ttf?k3xn19') . '") format("truetype");font-weight:normal;font-style:normal;font-display:block;}');
     //enqueue js
     //wp_enqueue_script("jquery-effects-core",array( 'jquery' ));
     wp_enqueue_script( 'jquery-ui-autocomplete',array( 'jquery' ),'',true );

@@ -346,7 +346,7 @@ $open_shop_color_scheme = get_theme_mod( 'open_shop_color_scheme','opn-light' );
 
                  $classes[] = 'open-shop-light';
          }
-         if( shortcode_exists( 'yith_wcwl_add_to_wishlist' ) ){
+        if( shortcode_exists( 'th_compare' ) || shortcode_exists( 'yith_wcwl_add_to_wishlist' ) ){
                  $classes[] = 'open-shop-wishlist-activate';
          }
 

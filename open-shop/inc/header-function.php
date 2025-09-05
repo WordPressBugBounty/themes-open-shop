@@ -6,6 +6,69 @@
  * @author      ThemeHunk
  * @since       Open Shop 1.0.0
  */
+if ( !function_exists('open_shop_get_page_classes')) {
+function open_shop_get_page_classes() {
+    $classes = '';
+    global $post;
+
+    if (!is_404() && !is_search() && is_page()) {
+        $post_id = isset($post) ? $post->ID : get_the_ID();
+        $page_post_meta_sidebar = get_post_meta($post_id, 'open_shop_disable_page_sidebar', true);
+        if ($page_post_meta_sidebar === 'on') {
+            $classes = 'no-sidebar';
+        }
+    } elseif (is_single()) {
+        $post_id = isset($post) ? $post->ID : get_the_ID();
+        $page_post_meta_sidebar = get_post_meta($post_id, 'open_shop_disable_page_sidebar', true);
+        if ($page_post_meta_sidebar === 'on') {
+            $classes = 'no-sidebar';
+        }
+    } elseif (function_exists('open_shop_is_blog') && open_shop_is_blog()) {
+        $blog_page_id = get_option('page_for_posts');
+        $page_post_meta_sidebar = get_post_meta($blog_page_id, 'open_shop_disable_page_sidebar', true);
+        if ($page_post_meta_sidebar === 'on') {
+            $classes = 'no-sidebar';
+        }
+    } elseif (class_exists('WooCommerce') && is_shop()) {
+        $shop_page_id = get_option('woocommerce_shop_page_id');
+        $page_post_meta_sidebar = get_post_meta($shop_page_id, 'open_shop_disable_page_sidebar', true);
+        if ($page_post_meta_sidebar === 'on') {
+            $classes = 'no-sidebar';
+        }
+    } elseif (class_exists('WooCommerce') && is_product()) {
+        $post_id = isset($post) ? $post->ID : get_the_ID();
+        $page_post_meta_sidebar = get_post_meta($post_id, 'open_shop_disable_page_sidebar', true);
+        if ($page_post_meta_sidebar === 'on') {
+            $classes = 'no-sidebar';
+        }
+    }
+
+    return esc_attr($classes);
+}
+}
+
+if ( !function_exists('open_shop_full_header_markup') ) {
+function open_shop_full_header_markup() { ?>
+<header class="open-shop-header">
+    <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'open-shop' ); ?></a>
+    <?php do_action( 'open_shop_sticky_header' ); ?> 
+        <!-- sticky header -->
+    <?php if(get_theme_mod('open_shop_above_mobile_disable')==true){
+    if (wp_is_mobile()!== true):
+             do_action( 'open_shop_top_header' );  
+            endif;
+    }elseif(get_theme_mod('open_shop_above_mobile_disable',false)==false){
+       do_action( 'open_shop_top_header' );  
+    } ?> 
+    <!-- end top-header -->
+        <?php do_action( 'open_shop_main_header' ); ?> 
+    <!-- end main-header -->
+    <?php if ( class_exists( 'WooCommerce' ) ){ do_action( 'open_shop_below_header' );} ?> 
+    <!-- end below-header -->
+  </header> <!-- end header -->
+<?php }
+add_action('open_shop_header', 'open_shop_full_header_markup');
+}
 /**************************************/
 //Top Header function
 /**************************************/
@@ -402,7 +465,7 @@ $acc_icon = get_theme_mod('open_shop_account_mobile_disable',false);
 <div class="header-icon">
      <?php 
      //Yith wishlist Icon
-    if( class_exists( 'YITH_WCWL' ) && (! class_exists( 'WPCleverWoosw' ))){
+    if( class_exists( 'THWL_Wishlist' ) || class_exists( 'YITH_WCWL' )){
       if($whs_icon == true){ 
        if (wp_is_mobile()!== true):
         ?>
@@ -411,18 +474,6 @@ $acc_icon = get_theme_mod('open_shop_account_mobile_disable',false);
      <?php endif; }
      elseif($whs_icon == false){?>
         <a class="whishlist" href="<?php echo esc_url( open_shop_whishlist_url() ); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
-    <?php  } }
-
-    //WPC Smart Wishlist Icon
-    if( class_exists( 'WPCleverWoosw' )){
-      if($whs_icon == true){ 
-       if (wp_is_mobile()!== true):
-        ?>
-      <a class="whishlist" href="<?php echo esc_url( WPcleverWoosw::get_url()); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
-      
-     <?php endif; }
-     elseif($whs_icon == false){?>
-        <a class="whishlist" href="<?php echo esc_url( WPcleverWoosw::get_url()); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
     <?php  } }
 
 
@@ -517,10 +568,7 @@ add_action('open_shop_site_preloader','open_shop_preloader');
               
         }?></a>        
                      <?php 
-                     if( class_exists( 'WPCleverWoosw' )){ ?>
-                      <a class="whishlist" href="<?php echo esc_url( WPcleverWoosw::get_url()); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
-                   <?php  }
-                    if( class_exists( 'YITH_WCWL' ) && (! class_exists( 'WPCleverWoosw' ))){
+                    if( class_exists( 'THWL_Wishlist' ) || class_exists( 'YITH_WCWL' )){
                       ?>
                       <a class="whishlist" href="<?php echo esc_url(open_shop_whishlist_url() ); ?>"><i  class="th-icon th-icon-heartline" aria-hidden="true"></i></a>
                      <?php } 

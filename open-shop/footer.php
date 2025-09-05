@@ -8,16 +8,9 @@
  * @since 1.0.0
  */ 
 ?>
-<footer>
-         <?php 
-          // top-footer 
-          do_action( 'open_shop_top_footer' ); 
-          // widget-footer
-		      do_action( 'open_shop_widget_footer' );
-		      // below-footer
-          do_action( 'open_shop_below_footer' );  
-        ?>
-     </footer> <!-- end footer -->
+<?php do_action( 'open_shop_before_footer' ); ?>
+<?php do_action( 'open_shop_footer' ); ?>
+<?php do_action( 'open_shop_after_footer' ); ?>
     </div> <!-- end openshop-site -->
 <?php wp_footer(); ?>
 </body>

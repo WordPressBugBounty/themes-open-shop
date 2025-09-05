@@ -4572,7 +4572,6 @@ input[type="text"], input[type="email"],input[type="url"],
 .woocommerce-checkout #search-button{
     top: 15px;
 }
-.woocommerce-checkout .thunk-content-wrap{display:-webkit-flex;}
 .woocommerce #order_review table.shop_table thead th {
     font-size: 15px;
     letter-spacing: 1px;
@@ -6957,6 +6956,10 @@ border:none
 }
 }
 @media screen and (max-width: 850px){
+    .thunk-wishlist a .thw-icon {
+  font-size: 12px;
+  line-height: 25px;
+}
    .below-header-col1{
       width:auto;
     }
