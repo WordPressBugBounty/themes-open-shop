@@ -7,7 +7,10 @@
  */
 $plugin_companion_file = 'hunk-companion/hunk-companion.php';
 get_template_part( 'inc/admin-function');
-get_template_part( 'inc/header-function');
+
+
+require_once OPEN_SHOP_THEME_DIR.'inc/header-function.php';
+
 get_template_part( 'inc/footer-function');
 get_template_part( 'inc/blog-function');
 //breadcrumbs

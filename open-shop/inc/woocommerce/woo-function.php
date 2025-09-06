@@ -269,8 +269,8 @@ function open_shop_whish_list($pid){
               </span></div>
       <?php  }
       elseif( shortcode_exists( 'yith_wcwl_add_to_wishlist' ) ){?>
-        <div class="thunk-wishlist"><span class="thunk-wishlist-inner"><?php echo do_shortcode('[yith_wcwl_add_to_wishlist  product_id='.esc_attr($pid).' icon="th-icon th-icon-favorite" label='.__('wishlist','openshop-pro').'
-         already_in_wishslist_text='.__('Already','openshop-pro').' browse_wishlist_text='.__('Added','openshop-pro').']' );?></span></div>
+        <div class="thunk-wishlist"><span class="thunk-wishlist-inner"><?php echo do_shortcode('[yith_wcwl_add_to_wishlist  product_id='.esc_attr($pid).' icon="th-icon th-icon-favorite" label='.__('wishlist','open-shop').'
+         already_in_wishslist_text='.__('Already','open-shop').' browse_wishlist_text='.__('Added','open-shop').']' );?></span></div>
       <?php  }
 
 
