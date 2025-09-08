@@ -27,7 +27,7 @@
 <body <?php body_class();?>>
 <?php wp_body_open();?>	
 <?php do_action('open_shop_site_preloader'); ?>
-<div id="page" class="openshop-site  <?php echo open_shop_get_page_classes(); ?>">
+<div id="page" class="openshop-site <?php echo function_exists( 'open_shop_get_page_classes' ) ? open_shop_get_page_classes() : ''; ?>">
 	 <?php do_action( 'open_shop_before_header' ); ?>
-	<?php do_action( 'open_shop_header' ); ?>
+	 <?php do_action( 'open_shop_header' ); ?>
 	 <?php do_action( 'open_shop_after_header' ); ?>

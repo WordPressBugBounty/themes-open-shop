@@ -6,54 +6,54 @@
  * @return mixed|string
  */
 $plugin_companion_file = 'hunk-companion/hunk-companion.php';
-get_template_part( 'inc/admin-function');
+require_once OPEN_SHOP_THEME_DIR.'inc/admin-function.php';
 
 
 require_once OPEN_SHOP_THEME_DIR.'inc/header-function.php';
 
-get_template_part( 'inc/footer-function');
-get_template_part( 'inc/blog-function');
+require_once OPEN_SHOP_THEME_DIR.'inc/footer-function.php';
+require_once OPEN_SHOP_THEME_DIR.'inc/blog-function.php';
 //breadcrumbs
-get_template_part( 'lib/breadcrumbs/breadcrumbs');
+require_once OPEN_SHOP_THEME_DIR.'lib/breadcrumbs/breadcrumbs.php';
 //page-post-meta
-get_template_part( 'lib/page-meta-box/open-page-meta-box');
+require_once OPEN_SHOP_THEME_DIR.'lib/page-meta-box/open-page-meta-box.php';
 //custom-style
-get_template_part( 'inc/open-shop-custom-style');
+require_once OPEN_SHOP_THEME_DIR.'inc/open-shop-custom-style.php';
 
 // customizer
-get_template_part('customizer/extend-customizer/class-open-shop-wp-customize-panel');
-get_template_part('customizer/extend-customizer/class-open-shop-wp-customize-section');
-get_template_part('customizer/customizer-radio-image/class/class-open-shop-customize-control-radio-image');
-get_template_part('customizer/customizer-range-value/class/class-open-shop-customizer-range-value-control');
-get_template_part('customizer/customizer-scroll/class/class-open-shop-customize-control-scroll');
-get_template_part('customizer/color/class-control-color');
-get_template_part('customizer/customize-buttonset/class-control-buttonset');
-get_template_part('customizer/sortable/class-open-control-sortable');
-get_template_part('customizer/background/class-open-shop-background-image-control');
-get_template_part('customizer/customizer-toggle/class-open-shop-toggle-control');
+require_once OPEN_SHOP_THEME_DIR.'customizer/extend-customizer/class-open-shop-wp-customize-panel.php';
+require_once OPEN_SHOP_THEME_DIR.'customizer/extend-customizer/class-open-shop-wp-customize-section.php';
+require_once OPEN_SHOP_THEME_DIR.'customizer/customizer-radio-image/class/class-open-shop-customize-control-radio-image.php';
+require_once OPEN_SHOP_THEME_DIR.'customizer/customizer-range-value/class/class-open-shop-customizer-range-value-control.php';
+require_once OPEN_SHOP_THEME_DIR.'customizer/customizer-scroll/class/class-open-shop-customize-control-scroll.php';
+require_once OPEN_SHOP_THEME_DIR.'customizer/color/class-control-color.php';
+require_once OPEN_SHOP_THEME_DIR.'customizer/customize-buttonset/class-control-buttonset.php';
+// require_once OPEN_SHOP_THEME_DIR.'customizer/sortable/class-open-control-sortable.php';
+require_once OPEN_SHOP_THEME_DIR.'customizer/background/class-open-shop-background-image-control.php';
+require_once OPEN_SHOP_THEME_DIR.'customizer/customizer-toggle/class-open-shop-toggle-control.php';
 //typography
-get_template_part('/customizer/typography/class-open-shop-control-typography');
-get_template_part('customizer/custom-customizer');
-get_template_part('customizer/customizer-constant');
-get_template_part('customizer/customizer');
+// require_once OPEN_SHOP_THEME_DIR.'/customizer/typography/class-open-shop-control-typography.php';
+require_once OPEN_SHOP_THEME_DIR.'customizer/custom-customizer.php';
+require_once OPEN_SHOP_THEME_DIR.'customizer/customizer-constant.php';
+require_once OPEN_SHOP_THEME_DIR.'customizer/customizer.php';
 /******************************/
 // woocommerce
 /******************************/
-get_template_part( 'inc/woocommerce/woo-core');
-get_template_part( 'inc/woocommerce/woo-function');
-get_template_part('inc/woocommerce/woocommerce-ajax');
+require_once OPEN_SHOP_THEME_DIR. 'inc/woocommerce/woo-core.php';
+require_once OPEN_SHOP_THEME_DIR. 'inc/woocommerce/woo-function.php';
+require_once OPEN_SHOP_THEME_DIR.'inc/woocommerce/woocommerce-ajax.php';
 
 //Th Option
-get_template_part( '/lib/th-option/th-option');
+require_once OPEN_SHOP_THEME_DIR. '/lib/th-option/th-option.php';
 
 // Probutton
 /******************************/
-get_template_part('customizer/pro-button/class-customize');
+require_once OPEN_SHOP_THEME_DIR.'customizer/pro-button/class-customize.php';
 
 /******************************/
 // Plugin Activation
 /******************************/
-get_template_part( 'lib/notification/notify');
+require_once OPEN_SHOP_THEME_DIR. 'lib/notification/notify.php';
 if (is_customize_preview() && !is_plugin_active($plugin_companion_file)) {
-get_template_part('lib/notification/customizer-notification/thsm-custom-section');
+require_once OPEN_SHOP_THEME_DIR.'lib/notification/customizer-notification/thsm-custom-section.php';
 }
