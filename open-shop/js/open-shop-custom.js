@@ -25,9 +25,9 @@
              if($('.header__cat__item.dropdown').length!==0){
              $this.cat_toggle();
              }
+             $this.checkIfScrollable();
         },
-        
-       
+
         sticky_header: function () {
  
                     var position = jQuery(window).scrollTop(); 
@@ -236,6 +236,53 @@
                         });
                      
                 },
+
+           checkIfScrollable: function() {
+  // Function to check if .thunk-product-cat-list has scrollable content
+  var catList = $('.thunk-product-cat-list')[0]; // Get the DOM element
+
+  // Function to check if it's scrollable based on content size
+  function updateScrollState() {
+    var isScrollable = catList.scrollHeight > catList.clientHeight;
+    // Set the overflow based on whether the content is scrollable
+    if (isScrollable) {
+      $('.thunk-product-cat-list').css('overflow-y', 'scroll');
+    } else {
+      $('.thunk-product-cat-list').css('overflow-y', 'hidden');
+    }
+  }
+
+  // Call the function once to set the initial state
+  updateScrollState();
+
+  // Update the scroll state when mouse enters and leaves a <li> with sub-menu
+  $('.thunk-product-cat-list').on('mouseenter', 'li.cat-item', function() {
+    const $li = $(this);
+
+    // Check if this <li> or any of its children contain a .sub-menu
+    const hasSubMenu = $li.find('.sub-menu').length > 0;
+
+    if (hasSubMenu) {
+      $('.thunk-product-cat-list').css('overflow-y', 'initial');
+    }
+  });
+
+  $('.thunk-product-cat-list').on('mouseleave', 'li.cat-item', function() {
+    updateScrollState();
+  });
+
+  // Optionally, listen for resize events in case the container changes size
+  $(window).on('resize', function() {
+    updateScrollState();
+  });
+
+  // Optionally, listen for any changes in the list content
+  // If using jQuery, you can bind to events like 'DOMNodeInserted' for dynamic content updates
+  $('.thunk-product-cat-list').on('DOMNodeInserted DOMNodeRemoved', function() {
+    updateScrollState();
+  });
+},
+
                 
 }
   OpenShopLib.init();

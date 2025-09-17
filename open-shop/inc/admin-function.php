@@ -354,3 +354,85 @@ $open_shop_color_scheme = get_theme_mod( 'open_shop_color_scheme','opn-light' );
 return $classes;
 }
 add_filter( 'body_class', 'open_shop_body_classes' );
+
+if ( !function_exists('open_shop_get_page_classes')) {
+function open_shop_get_page_classes() {
+    $classes = '';
+    global $post;
+
+    if (!is_404() && !is_search() && is_page()) {
+        $post_id = isset($post) ? $post->ID : get_the_ID();
+        $page_post_meta_sidebar = get_post_meta($post_id, 'open_shop_disable_page_sidebar', true);
+        if ($page_post_meta_sidebar === 'on') {
+            $classes = 'no-sidebar';
+        }
+    } elseif (is_single()) {
+        $post_id = isset($post) ? $post->ID : get_the_ID();
+        $page_post_meta_sidebar = get_post_meta($post_id, 'open_shop_disable_page_sidebar', true);
+        if ($page_post_meta_sidebar === 'on') {
+            $classes = 'no-sidebar';
+        }
+    } elseif (function_exists('open_shop_is_blog') && open_shop_is_blog()) {
+        $blog_page_id = get_option('page_for_posts');
+        $page_post_meta_sidebar = get_post_meta($blog_page_id, 'open_shop_disable_page_sidebar', true);
+        if ($page_post_meta_sidebar === 'on') {
+            $classes = 'no-sidebar';
+        }
+    } elseif (class_exists('WooCommerce') && is_shop()) {
+        $shop_page_id = get_option('woocommerce_shop_page_id');
+        $page_post_meta_sidebar = get_post_meta($shop_page_id, 'open_shop_disable_page_sidebar', true);
+        if ($page_post_meta_sidebar === 'on') {
+            $classes = 'no-sidebar';
+        }
+    } elseif (class_exists('WooCommerce') && is_product()) {
+        $post_id = isset($post) ? $post->ID : get_the_ID();
+        $page_post_meta_sidebar = get_post_meta($post_id, 'open_shop_disable_page_sidebar', true);
+        if ($page_post_meta_sidebar === 'on') {
+            $classes = 'no-sidebar';
+        }
+    }
+
+    return esc_attr($classes);
+}
+}
+
+if ( !function_exists('open_shop_full_header_markup') ) {
+function open_shop_full_header_markup() { ?>
+<header class="open-shop-header">
+    <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'open-shop' ); ?></a>
+    <?php do_action( 'open_shop_sticky_header' ); ?> 
+        <!-- sticky header -->
+    <?php if(get_theme_mod('open_shop_above_mobile_disable')==true){
+    if (wp_is_mobile()!== true):
+             do_action( 'open_shop_top_header' );  
+            endif;
+    }elseif(get_theme_mod('open_shop_above_mobile_disable',false)==false){
+       do_action( 'open_shop_top_header' );  
+    } ?> 
+    <!-- end top-header -->
+        <?php do_action( 'open_shop_main_header' ); ?> 
+    <!-- end main-header -->
+    <?php if ( class_exists( 'WooCommerce' ) ){ do_action( 'open_shop_below_header' );} ?> 
+    <!-- end below-header -->
+  </header> <!-- end header -->
+<?php }
+add_action('open_shop_header', 'open_shop_full_header_markup');
+}
+
+if ( !function_exists('open_shop_full_footer_markup') ) {
+function open_shop_full_footer_markup() { ?>
+   <footer class="open-shop-footer">
+         <?php 
+          // top-footer 
+          do_action( 'open_shop_top_footer' ); 
+          // widget-footer
+		  		do_action( 'open_shop_widget_footer' );
+		      // below-footer
+          do_action( 'open_shop_below_footer' );  
+        ?>
+     </footer> <!-- end footer -->
+    <?php }
+
+// Hook the custom footer function into 'zita_footer'
+add_action('open_shop_footer', 'open_shop_full_footer_markup');
+}

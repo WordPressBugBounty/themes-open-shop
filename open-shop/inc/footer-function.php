@@ -6,23 +6,6 @@
  * @author      ThemeHunk
  * @since       ThemeHunk 1.0.0
  */
-if ( !function_exists('open_shop_full_footer_markup') ) {
-function open_shop_full_footer_markup() { ?>
-   <footer class="open-shop-footer">
-         <?php 
-          // top-footer 
-          do_action( 'open_shop_top_footer' ); 
-          // widget-footer
-		  		do_action( 'open_shop_widget_footer' );
-		      // below-footer
-          do_action( 'open_shop_below_footer' );  
-        ?>
-     </footer> <!-- end footer -->
-    <?php }
-
-// Hook the custom footer function into 'zita_footer'
-add_action('open_shop_footer', 'open_shop_full_footer_markup');
-}
 /**************************************/
 //Top footer function
 /**************************************/

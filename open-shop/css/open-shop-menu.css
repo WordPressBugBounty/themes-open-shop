@@ -65,7 +65,8 @@ font-family: "Roboto-regular", sans-serif;
     content: "\f105";
 }
 
-.open-shop-menu  ul.sub-menu {
+.open-shop-menu  ul.sub-menu,
+.open-shop-menu .page_item_has_children .children {
 position: absolute;
 box-shadow: 0 4px 10px 0 rgba(3,3,3,.1);
 list-style: none;
@@ -84,7 +85,8 @@ background-color: #fff;
     transform: translateY(14px);
 
 }
-.open-shop-menu ul.sub-menu.slide {
+.open-shop-menu ul.sub-menu.slide,
+.open-shop-menu .page_item_has_children:hover .children {
     opacity: 1;
     visibility: visible;
     -webkit-transform: translateY(0);
@@ -93,7 +95,8 @@ background-color: #fff;
 .open-shop-menu li ul.sub-menu > li {
     width: 185px;
 }
-.open-shop-menu li ul.sub-menu li a {
+.open-shop-menu li ul.sub-menu li a,
+.open-shop-menu .children li a {
     display: block;
     height: auto;
     min-height: 0 !important;
@@ -103,11 +106,13 @@ background-color: #fff;
     font-weight: normal;
     background: none;
 }
-.open-shop-menu > li > ul.sub-menu > li {
+.open-shop-menu > li > ul.sub-menu > li,
+.open-shop-menu li.page_item_has_children {
     position: relative;
     line-height: initial;
 }
-.open-shop-menu > li > ul.sub-menu li > a > .arrow:before {
+.open-shop-menu > li > ul.sub-menu li > a > .arrow:before,
+.open-shop-menu li.page_item_has_children:before  {
     float: right;
     margin-right: 0px;
     display: inline;
@@ -117,6 +122,13 @@ background-color: #fff;
     content: "\f105";
     text-shadow: none;
 }
+.open-shop-menu li.page_item_has_children:before{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 5px;
+    content: "\f107";
+ }
 .open-shop-menu > li > ul.sub-menu > li ul.sub-menu {
     position: absolute;
     left: 100%;

@@ -1715,7 +1715,7 @@ img {
 
 .menu-category-list span.arrow {
     position: absolute;
-    right: 10px;
+    right: 4px;
     width: 50px;
     text-align: center;
     background: #eaeaea;
@@ -1726,9 +1726,17 @@ img {
     margin: 0;
     padding: 0; 
     max-height: 509px;
-    overflow-y: scroll;     
+    overflow-y: scroll; 
+     scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
 }
+
+.thunk-product-cat-list::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */    
+}
+
 /* WebKit-based browsers */
+/
 .thunk-product-cat-list::-webkit-scrollbar {
     width: 3px;
 }
@@ -2041,6 +2049,7 @@ img {
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
+    position: relative;
 }
 
 /*header-icon*/
@@ -7413,6 +7422,25 @@ header .taiowc-cart-item{
  .th-product-compare-btn.checkbox_type > span{
         padding-left: 21px!important;
     }
+    .header-icon .tooltip{
+  position: absolute;
+  top: -27px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  visibility: hidden;
+  background: #f7f8f9;
+    padding: 5px 9px;
+    border-radius: 4px;
+    line-height: initial;
+}
+.header-icon a:hover .tooltip{
+  opacity: 1;
+  visibility: visible;
+}
+.header-icon .tooltip{
+    display: none;
+}
 @media only screen and (min-device-width:1024px) and (max-device-width:1366px) and (-webkit-min-device-pixel-ratio:2)  and (orientation:landscape) {
     .thunk-product-hover {
         position: relative;

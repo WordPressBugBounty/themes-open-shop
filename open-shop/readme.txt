@@ -4,7 +4,7 @@ Tags: wide-blocks, block-patterns, block-styles, editor-style, e-commerce, blog,
 Requires at least: WordPress 5.0
 Requires PHP: 5.6
 Tested up to: 6.8
-Stable tag: 1.6.6
+Stable tag: 1.6.7
 License: GPLv3 or later
 License URL: https://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -23,8 +23,12 @@ Yes, this theme is tested with latest version of WordPress, you can use it for y
 
 == Changelog ==
 
+= Version 1.6.7 =
+* Update: Theme preview style improved.
+
 = Version 1.6.6 =
 * Update: get_template_part removed by require_once.
+* Update: Category scroll issue resolved.
 
 = Version: 1.6.5 =
 1. Child theme Fatal error issue fixed 
@@ -298,9 +302,9 @@ Yes, this theme is tested with latest version of WordPress, you can use it for y
 Initial release
 
 == Upgrade Notice ==
-= 1.6.0 =
-* Update: _load_textdomain_just_in_time was called incorrectly issue resolved.
-* Update: Tested with WordPress 6.8.
+
+= Version 1.6.7 =
+* Update: Theme preview style improved.
 
 == Resources ==
  
