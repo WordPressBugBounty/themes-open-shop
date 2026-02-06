@@ -303,10 +303,10 @@ return $wishlist_permalink ;
 /** My Account Menu **/
 function open_shop_account(){
  if ( is_user_logged_in() ) {
-  $return = '<a class="account" href="'.esc_url(get_permalink( get_option('woocommerce_myaccount_page_id') )).'" title="Account"><i class="th-icon th-icon-user" aria-hidden="true"></i><span class="account-text tooltip">Account</span></a>';
+  $return = '<a class="account" href="'.esc_url(get_permalink( get_option('woocommerce_myaccount_page_id') )).'" title="Account"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user w-6 h-6 stroke-[1.5px]" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg><span class="account-text tooltip">Account</span></a>';
   } 
  else {
-  $return = '<span><a href="'.esc_url(get_permalink( get_option('woocommerce_myaccount_page_id') )).'" title="Account"><i class="th-icon th-icon-user" aria-hidden="true"></i><span class="account-text tooltip">Account</span></a></span>';
+  $return = '<span><a href="'.esc_url(get_permalink( get_option('woocommerce_myaccount_page_id') )).'" title="Account"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user w-6 h-6 stroke-[1.5px]" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg><span class="account-text tooltip">Account</span></a></span>';
 }
  echo $return;
 }
