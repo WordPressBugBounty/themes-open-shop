@@ -11,7 +11,7 @@
  * Theme functions and definitions
  */
 if ( ! function_exists( 'open_shop_setup' ) ) :
-define( 'OPEN_SHOP_THEME_VERSION','1.6.9');
+define( 'OPEN_SHOP_THEME_VERSION','1.7.2');
 define( 'OPEN_SHOP_THEME_DIR', get_template_directory() . '/' );
 define( 'OPEN_SHOP_THEME_URI', get_template_directory_uri() . '/' );
 define( 'OPEN_SHOP_THEME_SETTINGS', 'open-shop-settings' );
@@ -118,7 +118,12 @@ define( 'OPEN_SHOP_THEME_SETTINGS', 'open-shop-settings' );
 
         // Recommend plugins
         add_theme_support( 'recommend-plugins', array(
-
+        	'th-store-one' => array(
+				'name' => esc_html__( 'TH Store One – A powerful all in one WooCommerce toolkit', 'open-shop' ),
+				'img' => 'icon-128x128.png',
+				'active_filename' => 'th-store-one/th-store-one.php',
+				),
+        	
             'hunk-companion' => array(
                 'name' => esc_html__( 'Hunk Companion (Highly Recommended)', 'open-shop' ),
                 'img' => 'icon-128x128.png',
@@ -156,7 +161,7 @@ define( 'OPEN_SHOP_THEME_SETTINGS', 'open-shop-settings' );
 
 			 'lead-form-builder' => array(
                 'name' => esc_html__( 'Lead Form Builder', 'open-shop' ),
-                 'img' => 'icon-128x128.png',
+                 'img' => 'icon-128x128.gif',
                 'active_filename' => 'lead-form-builder/lead-form-builder.php',
             ),
 

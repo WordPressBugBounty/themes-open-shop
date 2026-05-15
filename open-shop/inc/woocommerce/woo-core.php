@@ -245,7 +245,11 @@ if ( ! class_exists( 'Open_Shop_Woocommerce_Ext' ) ) :
 			);
            wp_localize_script( 'open-shop-woocommerce-js', 'openshop',  $localize );	
            wp_enqueue_script('open-quick-view', OPEN_SHOP_THEME_URI.'inc/woocommerce/quick-view/js/quick-view.js', array( 'jquery' ), '', true );
-           wp_localize_script('open-quick-view', 'openshopqv', array('ajaxurl' => admin_url( 'admin-ajax.php' )));
+           wp_localize_script('open-quick-view', 'openshopqv', array(
+           	'ajaxurl' => admin_url( 'admin-ajax.php' ),
+           	'nonce'   => wp_create_nonce( 'th_quickview_nonce' ),
+
+           ));
            
 		   }
 		/**
@@ -312,21 +316,83 @@ if ( ! class_exists( 'Open_Shop_Woocommerce_Ext' ) ) :
         /**
 		 * Quick view ajax
 		 */
-		function open_shop_load_product_quick_view_ajax(){
-			if ( ! isset( $_REQUEST['product_id'] ) ){
-				die();
+		
+			public function open_shop_load_product_quick_view_ajax() {
+
+			    // Verify nonce.
+			    check_ajax_referer( 'th_quickview_nonce', 'nonce' );
+
+			    // Validate product ID.
+			    $product_id = isset( $_POST['product_id'] )
+			        ? absint( wp_unslash( $_POST['product_id'] ) )
+			        : 0;
+
+			    // Invalid ID.
+			    if ( empty( $product_id ) ) {
+
+			        wp_send_json_error(
+			            array(
+			                'message' => esc_html__( 'Invalid product ID.', 'open-shop' ),
+			            ),
+			            400
+			        );
+			    }
+
+			    // Get product.
+			    $product = wc_get_product( $product_id );
+
+			    // Validate product.
+			    if (
+			        ! $product ||
+			        'product' !== get_post_type( $product_id ) ||
+			        'publish' !== get_post_status( $product_id )
+			    ) {
+
+			        wp_send_json_error(
+			            array(
+			                'message' => esc_html__( 'Product not found.', 'open-shop' ),
+			            ),
+			            404
+			        );
+			    }
+
+			    // Setup product query safely.
+			    wp(
+			        array(
+			            'p'         => $product_id,
+			            'post_type' => 'product',
+			        )
+			    );
+
+			    // Remove gallery thumbnails.
+			    remove_action(
+			        'woocommerce_product_thumbnails',
+			        'woocommerce_show_product_thumbnails',
+			        20
+			    );
+
+			    ob_start();
+
+			    // Load template.
+			    require_once OPEN_SHOP_THEME_DIR . 'inc/woocommerce/quick-view/quick-view-product.php';
+
+			    $output = ob_get_clean();
+
+			    // Empty template protection.
+			    if ( empty( $output ) ) {
+
+			        wp_send_json_error(
+			            array(
+			                'message' => esc_html__( 'Quick view content empty.', 'open-shop' ),
+			            ),
+			            500
+			        );
+			    }
+
+			    echo $output;
+
+			    wp_die();
 			}
-			$product_id = intval( $_REQUEST['product_id'] );
-			// set the main wp query for the product.
-			wp( 'p=' . $product_id . '&post_type=product' );
-			// remove product thumbnails gallery.
-			remove_action( 'woocommerce_product_thumbnails', 'woocommerce_show_product_thumbnails', 20 );
-			ob_start();
-			// load content template.
-			require_once OPEN_SHOP_THEME_DIR . 'inc/woocommerce/quick-view/quick-view-product.php';
-			echo ob_get_clean();
-			die();
-		}
 		/**
 		 * Quick view actions
 		 */

@@ -41,7 +41,6 @@ require_once OPEN_SHOP_THEME_DIR.'customizer/customizer.php';
 /******************************/
 require_once OPEN_SHOP_THEME_DIR. 'inc/woocommerce/woo-core.php';
 require_once OPEN_SHOP_THEME_DIR. 'inc/woocommerce/woo-function.php';
-require_once OPEN_SHOP_THEME_DIR.'inc/woocommerce/woocommerce-ajax.php';
 
 //Th Option
 require_once OPEN_SHOP_THEME_DIR. '/lib/th-option/th-option.php';

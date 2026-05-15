@@ -168,6 +168,17 @@ class OpenShopAdminNotice {
     public function install_and_activate_callback() {
         check_ajax_referer('thactivatenonce', 'security');
 
+         // Capability check.
+    if ( ! current_user_can( 'manage_options' ) ) {
+
+        wp_send_json_error(
+            array(
+                'message' => esc_html__( 'You are not allowed to perform this action.', 'open-shop' ),
+            ),
+            403
+        );
+    }
+
         $plugin_slug = isset($_POST['plugin_slug']) ? sanitize_text_field($_POST['plugin_slug']) : '';
 
         if (empty($plugin_slug)) {

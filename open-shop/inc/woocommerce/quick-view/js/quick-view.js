@@ -77,6 +77,7 @@ jQuery(document).ready(function($){
             url:openshopqv.ajaxurl,
 			data: {
 				action: 'thnk_load_product_quick_view',
+				nonce  : openshopqv.nonce,
 				product_id: product_id
 			},
 			dataType: 'html',
