@@ -230,6 +230,7 @@ $categoryText = get_theme_mod('open_shop_main_hdr_cat_txt','Category');
 						  </div>
 						  <?php open_shop_product_list_categories(); ?>
 					   </div><!-- menu-category-list -->
+             <div id="category-flyout"></div>
 				   </div>
            <div class="below-header-col2">
              <?php  

@@ -10,7 +10,6 @@
             var $this = this;
             $this.listGridView();
             $this.OffCanvas();
-            $this.cartDropdown();
             $this.AddtoCartQuanty();
           },
         listGridView: function (){

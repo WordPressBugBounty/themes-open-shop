@@ -25,6 +25,7 @@
              if($('.header__cat__item.dropdown').length!==0){
              $this.cat_toggle();
              }
+             $this.CategoryFlyout();
         },
 
         sticky_header: function () {
@@ -235,9 +236,88 @@
                         });
                      
                 },
+
+                 CategoryFlyout:function(){
+
+                        function initCategoryFlyout(){
+
+        // Sirf desktop
+        if($(window).width() <= 1024){
+            $('#category-flyout').hide();
+            $('.product-cat-list > li').off('.flyout');
+            return;
+        }
+
+        $('.product-cat-list > li').off('.flyout');
+
+        const flyout = $('#category-flyout');
+
+        $('.product-cat-list > li').on('mouseenter.flyout', function(){
+
+            const submenu = $(this).children('.children');
+
+            if(!submenu.length){
+                flyout.hide();
+                return;
+            }
+
+            const rect = this.getBoundingClientRect();
+
+            flyout.html('');
+
+            flyout.append(
+                $('<ul>').append(
+                    submenu.children().clone(true)
+                )
+            );
+
+            flyout.css({
+                position: 'fixed',
+                top: rect.top,
+                left: rect.right,
+                display: 'block'
+            });
+
+        });
+
+        $('.menu-category-list, #category-flyout')
+            .off('mouseleave.flyout')
+            .on('mouseleave.flyout', function(){
+
+                setTimeout(function(){
+
+                    if(
+                        !$('.menu-category-list:hover').length &&
+                        !$('#category-flyout:hover').length
+                    ){
+                        flyout.hide();
+                    }
+
+                },100);
+
+            });
+    }
+
+    // Initial load
+    initCategoryFlyout();
+
+    // Window resize par re-check
+    $(window).on('resize', function(){
+        initCategoryFlyout();
+    });
+
+
+
+                 },
+
                 
 }
   OpenShopLib.init();
 })(jQuery);
 
 
+
+
+
+
+    

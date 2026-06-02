@@ -860,6 +860,7 @@ header {
     width: 21%;
     box-sizing: border-box;
     float: left;
+    clear: left;
 }
 
 .no-sidebar .primary-content-area {
@@ -9227,4 +9228,60 @@ width:auto;
         width: 36%;
     }
 
+}
+
+
+/* Scrollable category list */
+.product-cat-list{
+    max-height:450px;
+    overflow-y:auto;
+    overflow-x:hidden;
+
+    scrollbar-width:none;
+    -ms-overflow-style:none;
+}
+
+.product-cat-list::-webkit-scrollbar{
+    display:none;
+}
+
+/* Flyout panel */
+#category-flyout{
+    position:absolute;
+    display:none;
+    min-width:220px;
+    background:#fff;
+    border:1px solid #e5e5e5;
+    z-index:999999;
+}
+
+#category-flyout ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+#category-flyout li{
+    position:relative;
+}
+
+#category-flyout a{
+    display:block;
+    padding: 9px 15px;
+    text-decoration:none;
+}
+
+/* Nested levels */
+#category-flyout .children{
+    display:none;
+    position:absolute;
+    top:0;
+    left:100%;
+    min-width:220px;
+    background:#fff;
+    border:1px solid #e5e5e5;
+}
+
+#category-flyout li:hover > .children{
+    display:block;
 }
