@@ -608,9 +608,6 @@ p {
 }
 
 .top-header-bar, .main-header-bar, .top-footer-bar, .below-footer-bar, .widget-footer-wrap, .widget-cs-container {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
@@ -3186,9 +3183,7 @@ border: 1px solid transparent;
 
 /******************/
 .thunk-banner-wrap {
-    display: -webkit-box;
     display: -webkit-flex;
-    display: -moz-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-flex-wrap: wrap;
@@ -3350,9 +3345,7 @@ border: 1px solid transparent;
 }
 
 .thunk-hglt-box {
-    display: -webkit-box;
     display: -webkit-flex;
-    display: -moz-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
@@ -4215,6 +4208,7 @@ select {
     margin-bottom: 20px;
     float: left;
     display: flex;
+    align-items: center;
    
 }
 
@@ -5884,7 +5878,6 @@ form p label {
 
 .page-head {
     padding-bottom: 15px;
-    display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
     display: -ms-flexbox;
@@ -6257,7 +6250,6 @@ section.thunk-ribbon-section .content-wrap {
 }
 
 .sticky-header-bar {
-    display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
     display: -ms-flexbox;
@@ -6514,15 +6506,7 @@ section.thunk-ribbon-section .content-wrap {
 /*text ellips css start*/
 
 /*******************/
-.thunk-woo-product-list .woocommerce-loop-product__title {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
-    line-height: 24px;
-    max-height: 24px;
-}
+
 
 .thunk-list .thunk-product-content .woocommerce-LoopProduct-title {
     overflow: hidden;
@@ -6541,18 +6525,8 @@ section.thunk-ribbon-section .content-wrap {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
     line-height: 21px;
-    max-height: 21px;
 }
 
-/*.thunk-title .title{
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp:1; 
-  line-height:28px; 
-   max-height:28px;
-}*/
 span.product-title {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -6570,7 +6544,6 @@ span.product-title {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
     line-height: 35px;
-    max-height: 35px;
 }
 
 .thunk-list-view .thunk-woo-product-list .woocommerce-loop-product__title {
@@ -7270,7 +7243,7 @@ text-decoration: underline !important;
 
 .thunk-icon .cart-icon .taiowc-cart-item,.thunk-icon .taiowc-content .taiowc-total {
     background: transparent;
-    color: #fff;
+    color: inherit;
 }
 .cart-plugin-active-msg{
 display: table-cell;
@@ -9284,4 +9257,20 @@ width:auto;
 
 #category-flyout li:hover > .children{
     display:block;
+}
+#category-flyout .arrow{
+    position: absolute;
+    right: 10px;
+    width: 50px;
+    text-align: center;
+}
+
+#category-flyout ul li > a > .arrow:before {
+    float: initial;
+    margin-right: 0px;
+    display: inline;
+    content: "\f105";
+    font-family: th-icon;
+    height: auto;
+    text-shadow: none;
 }
