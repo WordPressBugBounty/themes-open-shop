@@ -260,9 +260,7 @@ function open_shop_whish_list($pid){
               <?php echo do_shortcode('[thwl_add_to_wishlist 
                 product_id="' . esc_attr($pid) . '" 
                 add_icon="th-icon th-icon-heart1" 
-                add_text="Wishlist"
                 add_browse_icon="th-icon th-icon-favorite"
-                browse_text="Added"
                 theme_style="yes"
                 custom_class="th-wishlist-integrated"
               ]'); ?>
